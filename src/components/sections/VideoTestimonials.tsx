@@ -67,6 +67,28 @@ const testimonials: VideoTestimonial[] = [
     src: '/videos/lorenz-subtitled.mp4',
     poster: '/videos/lorenz-subtitled-poster-v2.jpg',
   },
+  {
+    id: 'dinaz',
+    name: 'Dinaz Bhagat',
+    role: 'Founder, Yogi Tree',
+    outcome: 'Tailored Solution',
+    overview:
+      'They completely understood what I needed for a very specific requirement and did a fabulous job. Communicated really well and delivered on point.',
+    duration: '0:28',
+    src: '/videos/testimonial-6.mp4',
+    poster: '/videos/testimonial-6-poster.jpg',
+  },
+  {
+    id: 'arunkumar',
+    name: 'Arunkumar SV',
+    role: 'Founder, PharmAInspire',
+    outcome: 'First-Principles AI',
+    overview:
+      'Strong technical knowledge and first-principles product building. Exceptional ability to break down complex technical concepts and deliver.',
+    duration: '1:01',
+    src: '/videos/arunkumar.mp4',
+    poster: '/videos/arunkumar-poster.jpg',
+  },
 ];
 
 function VerticalVideoCard({ item }: { item: VideoTestimonial }) {
@@ -141,7 +163,7 @@ function VerticalVideoCard({ item }: { item: VideoTestimonial }) {
         {!isPlaying && (
           <img
             src={item.poster}
-            alt={`${item.name} video testimonial`}
+            alt={item.name ? `${item.name} video testimonial` : 'Client video testimonial'}
             loading="lazy"
             decoding="async"
             className="absolute inset-0 z-10 h-full w-full object-cover pointer-events-none transition-opacity duration-200"
@@ -208,10 +230,10 @@ function VerticalVideoCard({ item }: { item: VideoTestimonial }) {
       <div className="mt-3 sm:mt-4 flex flex-col flex-1">
         <div>
           <h3 className="font-syne font-bold text-sm sm:text-base text-[#0B422A] tracking-tight">
-            {item.name}
+            {item.name || '\u00A0'}
           </h3>
           <p className="font-mono-custom text-[11px] sm:text-[11.5px] text-[#6B7E76] mt-0.5">
-            {item.role}
+            {item.role || '\u00A0'}
           </p>
         </div>
 
